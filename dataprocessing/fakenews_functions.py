@@ -39,15 +39,21 @@ def tokenize_and_remove_stopwords(text):
     tokens = nltk.word_tokenize(text)
     
     filtered_words = [word for word in tokens if word not in stop_words]
-    return " ".join(filtered_words)
+    return filtered_words
+    # return " ".join(filtered_words)
 
 
+stemmer = SnowballStemmer("english")
+def stemming_words(text: list[str]):
+    # words = text.split(" ")
+    stemmed_words = [(stemmer.stem(word)) for word in text]
+    stemmed_text =  " ".join(stemmed_words)
+    stemmed_text = stemmed_text.replace("< num >", "<num>")
+    stemmed_text = stemmed_text.replace("< date >", "<date>")
+    stemmed_text = stemmed_text.replace("< email >", "<email>")
+    stemmed_text = stemmed_text.replace("< url >", "<url>")
 
-def stemming_words(text: str):
-    words = text.split(" ")
-    stemmer = SnowballStemmer("english")
-    stemmed_words = [(stemmer.stem(word)) for word in words]
-    return " ".join(stemmed_words)
+    return stemmed_text
 
 
 if __name__ == "__main__":
@@ -77,8 +83,7 @@ if __name__ == "__main__":
                             rf"(\d{{1,2}}(\.|st|nd|th)? ({months}) (\d{{4}})?)|"
                             r"(\d{1,2}, \d{1,4})|"
                             rf"(({months}) of \d{{4}})|"
-                            rf"(\d{{4}} ({months}))",
-                            flags=re.IGNORECASE)
+                            rf"(\d{{4}} ({months}))")
 
     pattern_email = re.compile(r"\w+@([\w-]+\.)+\w+")
     pattern_url = re.compile(r"(\w+://)?\w+\.\w+(.\w+)?[/\w?=-]*")
