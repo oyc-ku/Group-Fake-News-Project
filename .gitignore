@@ -12,3 +12,4 @@ __pycache__/
 
 # Data files
 /data/**/*.csv
+linear_regreasion/995,000_rows_stemming_words.csv
