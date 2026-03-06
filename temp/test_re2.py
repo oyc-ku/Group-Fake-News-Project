@@ -16,9 +16,8 @@ pattern_date = (
     rf"(\d{{1,4}}-{MONTH_NUMBER}-\d{{1,4}})|"
     rf"({DAY_NUMBER}(\.|st|nd|th)? {MONTH} ({YEAR_NUMBER})?)"
 )
-pattern_email = r"[a-z]+@[a-z-]+(\.[a-z-]+)+"
-pattern_url = r"(https?://)[a-z]+(\.[a-z]+)+[/\w?=-]*"
-
+pattern_email = r"[a-z\d\.]+@[a-z\d-]+(\.[a-z\d-]+)+"
+pattern_url = r"""(https?://)?([a-z\d]+\.)+[a-z]{2,}([/\#:?][^\s<>\{\}\^"]*)?"""
 
 options = re.Options()
 options.never_capture = True
@@ -32,11 +31,11 @@ re_whitespace = re.compile(r" {2,}", options)
 @line_profiler.profile
 def clean_text(text: str):
     text = text.lower()
+    text = text.replace("\t", " ")
+    text = text.replace("\n", " ")
     text = re_whitespace.sub(" ", text)
-    text = text.replace("\n", "")
-    text = text.replace("\t", "")
-    text = re_url.sub("<url>", text)
     text = re_email.sub("<email>", text)
+    text = re_url.sub("<url>", text)
     text = re_date.sub("<date>", text)
     text = re_number.sub("<num>", text)
 
