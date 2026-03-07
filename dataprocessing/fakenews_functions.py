@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 import re2 as re
 import nltk
 from nltk.corpus import stopwords
@@ -51,8 +53,14 @@ def tokenize_and_remove_stopwords(text):
 
 
 stemmer = SnowballStemmer("english")
+
+@lru_cache(maxsize=2**14)
+def cached_stem(word: str):
+    return stemmer.stem(word)
+
+
 def stemming_words(text: list[str]):
-    stemmed_words = [(stemmer.stem(word)) for word in text]
+    stemmed_words = [cached_stem(word) for word in text]
     stemmed_text =  " ".join(stemmed_words)
     stemmed_text = stemmed_text.replace("< num >", "<num>")
     stemmed_text = stemmed_text.replace("< date >", "<date>")
