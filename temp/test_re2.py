@@ -11,10 +11,10 @@ MONTH_NUMBER = r"(0?[1-9]|1[0-2])"
 YEAR_NUMBER = r"\d{4}"
 
 pattern_date = (
-    rf"({MONTH}(\.? ?{DAY_NUMBER}([,\./]? ?{YEAR_NUMBER}\.?)?| (of )?{YEAR_NUMBER}\.?))|"
+    rf"({MONTH}(\.? ?{DAY_NUMBER}(st|nd|rd|th)?([,\./]? ?{YEAR_NUMBER}\.?)?| (of )?{YEAR_NUMBER}\.?))|"
     rf"({YEAR_NUMBER} {MONTH})|"
     rf"(\d{{1,4}}-{MONTH_NUMBER}-\d{{1,4}})|"
-    rf"({DAY_NUMBER}(\.|st|nd|th)? {MONTH} ({YEAR_NUMBER})?)"
+    rf"({DAY_NUMBER}(\.|st|nd|rd|th)? {MONTH} ({YEAR_NUMBER})?)"
 )
 pattern_email = r"[a-z\d\.]+@[a-z\d-]+(\.[a-z\d-]+)+"
 pattern_url = r"""(https?://)?([a-z\d]+\.)+[a-z]{2,}([/\#:?][^\s<>\{\}\^"]*)?"""
