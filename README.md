@@ -3,7 +3,7 @@
 ### Task 1
 The required librarys are: Pandas,nltk,parrallel_pandes
 To get the desigede result first download the script called fakenews_function.py and the sample news file.
-After those two files have been installed put them in a folder together with Compute_vocab_size.ipynb. Change path_of_sample to the path of the sample fille(might also need to change the n_cpu in ParralellPandas. Run the cells in the fille until you get to the cell where it would print it, and then run that cell.
+After those two files have been installed put them in a folder together with Compute_vocab_size.ipynb. Change path_of_sample to the path of the sample fille(might also need to change the n_cpu in ParralellPandas). Run the cells in the fille until you get to the cell where it would print it, and then run that cell.
 ### Task 2
 If the thing done in Task 1 are complete download project.ipynb and change the sample path, and the path that is being read as a csv to the path to the 995k rows data. Now change the file path in the document so they match with you files path and then run the script this is to get the file, and then run the parts of Compute_vocab_size.ipynb which was not run in task 1, where you change the file path to be the path to the 995k row file.
 
