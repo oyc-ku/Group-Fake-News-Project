@@ -19,3 +19,12 @@ Get the cleaned data file and the spilt_data.py and change the path to the clean
 You need the cleaned data, the top 10k words file (which you should have from exploration.ipynb) and the full data set, and the file - what file name?. Place the path to the different ones full_data should be the full data set, vocab_list should be the top 10k words, and data should be the cleaned one, then run it all down to the confusion matrix.
 ### Task 3
 Use the same files as in task 2 just run it from the confusion matrix to the Evaluation part.
+
+
+## Part 4
+
+### Task 1
+For the logistic_regression do the samme as you did for Part 2 Task 2, but run the file until LIAR
+
+### Task 2
+For the logistic_regression is the same as in Task 1, but just also run for the LIAR dataset
