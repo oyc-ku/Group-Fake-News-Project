@@ -6,8 +6,6 @@
 from gensim.models import Word2Vec
 import torch
 import pandas as pd
-from parallel_pandas import ParallelPandas
-ParallelPandas.initialize(n_cpu=8, split_factor=4)
 
 EMBEDDING_MODEL_PATH = "./model1.model"
 METADATA_PATH = "./../data/995,000_rows.csv"
@@ -29,7 +27,8 @@ def tokenlist_to_tokenindexes(embedding_model, tokens):
 
 def preprocess_element(embedding_model, stemmed_token_string):
     token_strings = stemmed_token_string.split(" ")
-    token_indexes = tokenlist_to_tokenindexes(embedding_model, token_strings)
+
+    return tokenlist_to_tokenindexes(embedding_model, token_strings)
 
 def get_preprocessed_data():
     embedding_model = Word2Vec.load(EMBEDDING_MODEL_PATH)
@@ -38,9 +37,11 @@ def get_preprocessed_data():
     
     processed_chunks = []
 
-    for chunk in stemmed_data_chunks:
-        chunk = chunk["content"].p_apply(lambda x: preprocess_element(embedding_model, x))
-        processed_chunks.append(chunk)
+    print("Processed chunks: ", end="")
+    for i, chunk in enumerate(stemmed_data_chunks):
+        processed_chunk = chunk["content"].apply(lambda x: preprocess_element(embedding_model, x))
+        processed_chunks.append(processed_chunk)
+        print(f"{i} ", end="")
 
     data = pd.concat(processed_chunks).to_frame()
     data["type"] = metadata["type"].apply(convert_labels)
