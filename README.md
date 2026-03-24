@@ -9,3 +9,6 @@ If the thing done in Task 1 are complete download project.ipynb and change the s
 
 ### Task 3
 For this you will need both the orignal 995k file and the cleaned file, open Expolartion_of_data_two.ipynb and change the fille path, so datsetc is the cleaned one and datasett is the uncleaned one. Then run the script. After that is done run exploration.ipynb where you change the file paths to match your files paths
+
+### Task 4
+
