@@ -16,7 +16,7 @@ Get the cleaned data file and the spilt_data.py and change the path to the clean
 
 ## Part 2
 ### Task 2
-You need the cleaned data, the top 10k words file (which you should have from exploration.ipynb) and the full data set, and the file - what file name?. Place the path to the different ones full_data should be the full data set, vocab_list should be the top 10k words, and data should be the cleaned one, then run it all down to the confusion matrix.
+You need the cleaned data, the top 10k words file (which you should have from exploration.ipynb) and the full data set, and the file logistic_regression_CPU.ipynb. Place the path to the different ones full_data should be the full data set, vocab_list should be the top 10k words, and data should be the cleaned one, then run it all down to the confusion matrix.
 ### Task 3
 Use the same files as in task 2 just run it from the confusion matrix to the Evaluation part.
 
@@ -24,7 +24,9 @@ Use the same files as in task 2 just run it from the confusion matrix to the Eva
 ## Part 4
 
 ### Task 1
-For the logistic_regression do the samme as you did for Part 2 Task 2, but run the file until LIAR
+For the logistic_regression do the samme as you did for Part 2 Task 2, but run the file until LIAR, or you take the linreg.joblib file that you made from logistic_regression_CPU.ipynb and in the same env use the file log_rev_ev.ipynb and run it there where you will get the same result.
 
 ### Task 2
-For the logistic_regression is the same as in Task 1, but just also run for the LIAR dataset
+First you need to procces the LIAR dataset, so take the test part of the LIAR dataset and run it proccees_lair_data_set.ipynp and make sure to give it the correct path and that it can see fakenews_functions.py.
+
+For the logistic_regression is the same as in Task 1, but just run it for the LIAR dataset that have been procces. It can both be none in log_rev_ev.ipynb and in logistic_regression_CPU.ipynb script just scroll down to it.
