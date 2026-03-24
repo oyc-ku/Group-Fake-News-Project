@@ -15,3 +15,10 @@ __pycache__/
 linear_regreasion/995,000_rows_stemming_words.csv
 *.csv
 GoogleNews-vectors-negative300.bin.gz
+
+
+
+# Neural network model files
+/NeurelNetwork/*.pth
+/NeurelNetwork/*.npy
+/NeurelNetwork/*.model
