@@ -12,3 +12,10 @@ For this you will need both the orignal 995k file and the cleaned file, open Exp
 
 ### Task 4
 Get the cleaned data file and the spilt_data.py and change the path to the cleaned data file, and run the script.
+
+
+## Part 2
+### Task 2
+You need the cleaned data, the top 10k words file (which you should have from exploration.ipynb) and the full data set, and the file -what file name?. Place the path to the different ones full_data should be the full data set, vocab_list should be the top 10k words, and data should be the cleaned one, then run it all down to the f1_score.
+### Task 3
+Use the same 
