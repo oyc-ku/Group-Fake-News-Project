@@ -3,7 +3,7 @@
 ### Task 1
 The required librarys are: Pandas,nltk,parrallel_pandas
 
-To get a desired result, first download the script called fakenews_function.py and the sample news file.
+To reproduce the results in the report, first download the script called fakenews_function.py and the sample news file.
 After those two files have been installed put them in a folder together with Compute_vocab_size.ipynb. Change path_of_sample to the path of the sample file(might also need to change the n_cpu in ParralellPandas). Run the cells in the file until you get to the cell where it would print the size of the vocab, and then run that cell.
 ### Task 2
 When you're done with task 1, then download project.ipynb. Update both the sample path and the CSV file so they both point to the their respektive dataset(sample to sample and file_chunks to 995k rows). Now make sure that all file paths in the notebook match your setup, and then run the script to generate the file. Now open up Compute_vocab_size.ipynb and run the sections you didn't do in task 1. And again update the file so it points to the 995k rows dataset before running those parts.
