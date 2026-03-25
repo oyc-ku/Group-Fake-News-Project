@@ -7,7 +7,7 @@ from gensim.models import Word2Vec
 import torch
 import pandas as pd
 
-EMBEDDING_MODEL_PATH = "./model1.model"
+EMBEDDING_MODEL_PATH = "../models/embedding_model.model"
 METADATA_PATH = "./../data/995,000_rows.csv"
 STEMMED_DATA_PATH = "./../data/data_stemmed.csv"
 LABELS_FAKE = {"fake", "hate", "rumor", "unreliable", "conspiracy", "bias", "junksci", "satire"}
