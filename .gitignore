@@ -13,9 +13,13 @@ __pycache__/
 # Data files
 /data/**/*.csv
 *.csv
-
+!data/news_sample.csv
+!data/topwords10000.csv
+!data/liar_test.tsv
 
 # Neural network model files
 /models/*.pth
 /models/*.npy
 /models/*.model
+/models/*.joblib
+!models/logistic_model.joblib
