@@ -16,6 +16,9 @@ __pycache__/
 !data/news_sample.csv
 !data/topwords10000.csv
 !data/liar_test.tsv
+!data/liar_stemmed_data.csv
+!data/nn_model_loss.csv
+
 
 # Neural network model files
 /models/*.pth
@@ -23,3 +26,5 @@ __pycache__/
 /models/*.model
 /models/*.joblib
 !models/logistic_model.joblib
+!models/logistic_metadata_model.joblib
+
