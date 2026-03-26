@@ -7,7 +7,6 @@ from gensim.models import Word2Vec
 import torch
 import pandas as pd
 
-EMBEDDING_MODEL_PATH = "../models/embedding_model.model"
 METADATA_PATH = "./../data/995,000_rows.csv"
 STEMMED_DATA_PATH = "./../data/data_stemmed.csv"
 LABELS_FAKE = {"fake", "hate", "rumor", "unreliable", "conspiracy", "bias", "junksci", "satire"}
@@ -30,8 +29,7 @@ def preprocess_element(embedding_model, stemmed_token_string):
 
     return tokenlist_to_tokenindexes(embedding_model, token_strings)
 
-def get_preprocessed_data():
-    embedding_model = Word2Vec.load(EMBEDDING_MODEL_PATH)
+def get_preprocessed_data(embedding_model):
     metadata = pd.read_csv(METADATA_PATH, usecols=["type"])
     stemmed_data_chunks = pd.read_csv(STEMMED_DATA_PATH, index_col=0, chunksize=2**16) 
     
