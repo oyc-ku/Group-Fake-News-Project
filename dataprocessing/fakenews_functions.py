@@ -1,5 +1,6 @@
 from functools import lru_cache
 
+import pandas as pd
 import re2 as re
 import nltk
 from nltk.corpus import stopwords
@@ -68,6 +69,31 @@ def stemming_words(text: list[str]):
     stemmed_text = stemmed_text.replace("< url >", "<url>")
 
     return stemmed_text
+
+
+LABELS_FAKE = {"fake", "hate", "rumor", "unreliable", "conspiracy", "bias", "junksci", "satire"}
+LABELS_RELIABLE = {"reliable", "political", "clickbait"}
+
+def change_label(label):
+    if label in LABELS_FAKE:
+        return 0
+    elif label in LABELS_RELIABLE:
+        return 1
+    else:
+        return pd.NA
+
+
+LABELS_FAKE_LIAR = {"false","half-true","pants-fire","barely-true"}
+LABELS_RELIABLE_LIAR = {"true","mostly-true"}
+
+def change_label_liar(label):
+    if label in LABELS_FAKE_LIAR:
+        return 0
+    elif label in LABELS_RELIABLE_LIAR:
+        return 1
+    else:
+        return pd.NA
+
 
 
 if __name__ == "__main__":
