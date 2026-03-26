@@ -33,3 +33,6 @@ First you need to procces the LIAR dataset. So take the test split of the LIAR d
 
 For the logistic_regression, follow the same procedure as in Task 1, but just run it for the LIAR dataset. You can do this by either the log_rev_ev.ipynb or the logistic_regression_CPU.ipynb by scrolling down to the LIAR part and running the correspondings cells. If doing this in log_rev_ev.ipynb then make sure to have the joblib file and the data_test both that you get from running logistic_regression_CPU.ipynb.
 
+## Part 5
+To get the data from part 5 run data_set_exp.ipynb and remember to set the path so they correctly look at the cleaned liar and the cleaned test set.
+
