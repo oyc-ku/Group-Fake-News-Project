@@ -9,7 +9,7 @@ After those two files have been installed put them in a folder together with Com
 When you're done with task 1, then download project.ipynb. Update both the sample path and the CSV file so they both point to the their respektive dataset(sample to sample and file_chunks to 995k rows). Now make sure that all file paths in the notebook match your setup, and then run the script to generate the file. Now open up Compute_vocab_size.ipynb and run the sections you didn't do in task 1. And again update the file so it points to the 995k rows dataset before running those parts.
 
 ### Task 3
-Now open up exploration_tokens_and_domains.ipynb here you will need both the orignal 995k dataset and the cleaned version. Make sure to update the file paths so that datsetc points to the cleaned dataset and datasett points to the uncleaned dataset. Then run the notebook. Next open up exploration.ipynb and update the file paths to match your setup and run this notebook aswell.
+Now open up exploration_tokens_and_domains.ipynb here you will need both the orignal 995k dataset and the cleaned version. Make sure to update the file paths so that data points to the cleaned dataset and metadata points to the uncleaned dataset. Then run the notebook. Next open up exploration.ipynb and update the file paths to match your setup and run this notebook aswell.
 
 ### Task 4
 Get the cleaned data file and the spilt_data.py. Update the file path in split_data.py so it points to the cleaned data file, and run the script.
