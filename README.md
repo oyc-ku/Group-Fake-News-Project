@@ -22,7 +22,7 @@ You need the cleaned data, the top 10k words file (which you should have from ex
 ### Task 3
 Use the same files as in task 2, but now start from the confusion matrix and run the notebook down to the evaluation part.
 ## Part 3
-To get the advanced model make sure to run word_embeddings.ipynb first, after you have run that go to the nn_lstm_preprocessing.py file and change the paths to match your paths. So EMBEDDING_MODEL_PATH should be the model that you got from word_embeddings.ipynb and METADATA_PATH should be the total 995k rows dataset, and STEMMED_DATA_PATH should be the stemmed one that you got from the 
+To get the advanced model make sure to run word_embeddings.ipynb first, after you have run that go to the nn_lstm_preprocessing.py file and change the paths to match your paths. So EMBEDDING_MODEL_PATH should be the model that you got from word_embeddings.ipynb and METADATA_PATH should be the total 995k rows dataset, and STEMMED_DATA_PATH should be the stemmed one that you got from the part 1 task 2. After that is done now run nn_lstm.ipynb until testing and you will get a model saved.
 
 ## Part 4
 
@@ -30,10 +30,14 @@ To get the advanced model make sure to run word_embeddings.ipynb first, after yo
 For the logistic_regression, repeat what you did for Part 2 Task 2, but this time run the file until the LIAR part.
 Alternatively you can take the linreg.joblib file that you made from logistic_regression_CPU.ipynb, and in the same environment open the file log_rev_ev.ipynb and run the notebook to get the same result.
 
+For the LSTM part get all the files from Part 3 and run the testing part.
+
 ### Task 2
 First you need to procces the LIAR dataset. So take the test split of the LIAR dataset and run proccees_lair_data_set.ipynp, whilst making sure the notebook has the correct path to the test file and that it can see fakenews_functions.py.
 
 For the logistic_regression, follow the same procedure as in Task 1, but just run it for the LIAR dataset. You can do this by either the log_rev_ev.ipynb or the logistic_regression_CPU.ipynb by scrolling down to the LIAR part and running the correspondings cells. If doing this in log_rev_ev.ipynb then make sure to have the joblib file and the data_test both that you get from running logistic_regression_CPU.ipynb.
+
+For the LSTM part get all the files from Part 3 and the fille called nn_modelevaluation.ipynb.
 
 ## Part 5
 To get the data from part 5 run data_set_exp.ipynb and remember to set the path so they correctly point to the cleaned liar and the cleaned test set.
