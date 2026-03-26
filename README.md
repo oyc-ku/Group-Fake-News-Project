@@ -1,4 +1,5 @@
 # Group-Fake-News-Project
+First run the environment.yml file to make sure you have the corrrect libraries and such.
 ## Part 1
 ### Task 1
 The required librarys are: Pandas,nltk,parrallel_pandas
@@ -20,7 +21,8 @@ Get the cleaned data file and the spilt_data.py. Update the file path in split_d
 You need the cleaned data, the top 10k words file (which you should have from exploration.ipynb), the full data set, and the file logistic_regression_CPU.ipynb. Update the paths so that full_data points to the full dataset, vocab_list points to the top‑10k‑words file, and data points to the cleaned dataset. And then run the notebook down to the cell that outputs the confusion matrix.
 ### Task 3
 Use the same files as in task 2, but now start from the confusion matrix and run the notebook down to the evaluation part.
-
+## Part 3
+To get the advanced model make sure to run word_embeddings.ipynb first, after you have run that go to the nn_lstm_preprocessing.py file and change the paths to match your paths. So EMBEDDING_MODEL_PATH should be the model that you got from word_embeddings.ipynb and METADATA_PATH should be the total 995k rows dataset, and STEMMED_DATA_PATH should be the stemmed one that you got from the 
 
 ## Part 4
 
