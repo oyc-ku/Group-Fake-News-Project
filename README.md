@@ -12,12 +12,13 @@ Some PyTorch performance optimizations also require features that are only avail
 We ran our code in a Linux environment with 16 GB of memory and a NVIDIA A30 GPU on CUDA 12.8, provided by the [Electronic Research Data Archive](https://www.erda.dk/) at The University of Copenhagen.
 
 ## Repository structure
-
+There are two different kinds of folder: One which is using as part of each part such as `logisticregression/`, and the second type is which that contain infomation/files which goes beyond them such as `data/`. `dataprocessing/` is an outlier since it contains all dataprocessing both for [part 1](#1-data-processing-and-exploration) and [part 4](4-evaluation-of-models-with-liar-dataset)
+Download the whole project and there would be generated files which either already exsists `liar_stemmed_data.csv` but also data which are to big such as `stemmed_data.csv`.
 
 ## 1 Data processing and exploration
 To process the 995K FakeNewsCorpus subset, place the `995,000_rows.csv` file in the `data/` folder. Then, the dataprocessing scripts/notebooks located in the `dataprocessing/` folder can be run.
 
-The `project.ipynb` is the main dataprocessing notebook, that uses the corpus to create a cleaned and stemmed version called `stemmed_data.csv` in the `data/` folder.
+The `dataprocessing.ipynb` is the main dataprocessing notebook, that uses the corpus to create a cleaned and stemmed version called `stemmed_data.csv` in the `data/` folder.
 
 The `fakenews_functions.py` script contains functions and regex patterns that `project.ipynb` uses to process the data.
 
@@ -26,6 +27,8 @@ The `exploration.ipynb` notebook is used to explore the distribution of unique t
 The `exploration_tokens_and_domains.ipynb` notebook is used to explore our special tokens and the distribution of unique domains in the dataset.
 
 The `Compute_vocab_size.ipynb` notebook is used to explore the vocabulary sizes during parts of the data processing.
+
+The `split_data.py` file is used to split the data into train, validation and test, even though all the files use `stemmed_data.csv` and then apply the samme procces on it as `split_data.py` does.
 
 <!-- TODO: creation of topword10000.csv -->
 
