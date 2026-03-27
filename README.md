@@ -1,5 +1,6 @@
 # Group-Fake-News-Project
 First update your Python environment, so it matches with environment.yml, this is to make sure you have all the corrrect libraries and such.
+
 If things aren't working make sure that your python environment can see you file that you are refering to, or change it to absolute path, if it cannot see it locally.
 ## Part 1
 ### Task 1/cleaning
