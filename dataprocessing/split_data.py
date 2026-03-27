@@ -1,5 +1,5 @@
 import pandas as pd
-data=pd.read_csv("99950stemmedOvr.csv")
+data=pd.read_csv("../data/data_stemmed.csv", index_col=0)
 data=data.sample(frac=1,random_state=0)
 trainset=data.iloc[:int(len(data)*0.80)]
 validation=data.iloc[int(len(data)*0.80):int(len(data)*0.90)]
