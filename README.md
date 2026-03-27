@@ -12,9 +12,11 @@ Some PyTorch performance optimizations also require features that are only avail
 We ran our code in a Linux environment with 16 GB of memory and a NVIDIA A30 GPU on CUDA 12.8, provided by the [Electronic Research Data Archive](https://www.erda.dk/) at The University of Copenhagen.
 
 ## Repository structure
-There are two different kinds of folder: One which is using as part of each part such as `logisticregression/`, and the second type is which that contain infomation/files which goes beyond them such as `data/`. `dataprocessing/` is an outlier since it contains all dataprocessing both for [part 1](#1-data-processing-and-exploration) and [part 4](#4-evaluation-of-models-with-liar-dataset).
-Download the whole project and follow the steps in the different parts. When running the code there would be generated files some which either already exsists `liar_stemmed_data.csv` but also data which are too big for github such as `stemmed_data.csv`.
+There are different kinds of folder: One of thoese is the one that are related to a dirrect part e.g. `logisticregression/`for [part 2](#2-logistic-regression-model), and the second type is which that contain infomation/files which are using in multiple partssuch as `data/`.An outlier of those two are `dataprocessing/`  since it contains all dataprocessing both for [part 1](#1-data-processing-and-exploration) and [part 4](#4-evaluation-of-models-with-liar-dataset).
+
+When running the code there would be generated files some which either already exsists `liar_stemmed_data.csv` but also data which are too big for github such as `stemmed_data.csv`.
 If something does not match the path or it gives an error becuase of path just change the path so that it matches with it, sometimes it might be necessary to use your global path.
+Download the whole project before you not just the files that you need.
 
 ## 1 Data processing and exploration
 To process the 995K FakeNewsCorpus subset, place the `995,000_rows.csv` file in the `data/` folder. Then, the dataprocessing scripts/notebooks located in the `dataprocessing/` folder can be run.
@@ -29,7 +31,7 @@ The `exploration_tokens_and_domains.ipynb` notebook is used to explore our speci
 
 The `Compute_vocab_size.ipynb` notebook is used to explore the vocabulary sizes during parts of the data processing.
 
-The `split_data.py` file is used to split the data into train, validation and test, even though all the files use `stemmed_data.csv` and then apply the samme procces on it as `split_data.py` does.
+The `split_data.py` file is used to split the data into train, validation and test, even though all the files use `stemmed_data.csv` and then apply the samme procces on it as `split_data.py`.
 
 
 ## 2 Logistic regression model
