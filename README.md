@@ -1,5 +1,5 @@
 # Group-Fake-News-Project
-First update your Python env, so it matches with environment.yml, this is to make sure you have all the corrrect libraries and such.
+First update your Python environment, so it matches with environment.yml, this is to make sure you have all the corrrect libraries and such.
 ## Part 1
 ### Task 1/cleaning
 
