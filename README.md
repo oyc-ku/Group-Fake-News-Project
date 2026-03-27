@@ -18,7 +18,7 @@ Running the scripts will generate files. Some which either already exsists `liar
 If something does not match the path or it gives an error becuase of path, just update the path so that it matches with your local enviorment, sometimes it might be necessary to use your global path.
 Ensure you download the whole project, rather than individual file.
 
-The `temp/` folder is used for files for we don't use anymore an exemple of that is `split_data.py` which was used to split the data into train, validation and test. But instead of doing it there we decied to do the procces in the files where we need either train, validation or test .
+The `temp/` folder is used for files for we don't use anymore, an exemple of that is `split_data.py` which was used to split the data into train, validation and test. But instead of doing it there we decied to do the procces in the files where we need either train, validation or test .
 
 ## 1 Data processing and exploration
 To process the 995K FakeNewsCorpus subset, place the `995,000_rows.csv` file in the `data/` folder. You can then run the scripts located in the `dataprocessing/` folder.
