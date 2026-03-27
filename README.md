@@ -1,45 +1,57 @@
 # Group-Fake-News-Project
-First update your Python environment, so it matches with environment.yml, this is to make sure you have all the corrrect libraries and such.
+To reproduce the results in the report, the same libraries are needed.
+Our conda environment, including the libraries we used, can be created with the following command from the main project folder.
 
-If things aren't working make sure that your python environment can see you file that you are refering to, or change it to absolute path, if it cannot see it locally.
-## Part 1
-### Task 1/cleaning
+```bash
+conda env create -f environment.yml
+```
 
-To reproduce the results in the report, first download the script called fakenews_function.py and the sample news file.
-After those two files have been installed put them in a folder together with Compute_vocab_size.ipynb. Change path_of_sample to the path of the sample file(might also need to change the n_cpu in ParralellPandas). Run the cells in the file until you get to the cell where it would print the size of the vocab, and then run that cell.
-### Task 2/cleaning the full data
-When you're done with task 1, then download project.ipynb. Update both the sample path and the CSV file so they both point to the their respektive dataset(sample to sample and file_chunks to 995k rows). Now make sure that all file paths in the notebook match your setup, and then run the script to generate the file. Now open up Compute_vocab_size.ipynb and run the sections you didn't do in task 1. And again update the file so it points to the 995k rows dataset before running those parts.
+Specific parts of our code also run on the GPU, and require CUDA support. Some libraries (such as cuML, that works as a almost identical replacement to sklearn, but runs on the GPU) require a Linux based PC.
+Some PyTorch performance optimizations also require features that are only available on specific GPUs. 
 
-### Task 3/Exploration of data
-Now open up exploration_tokens_and_domains.ipynb here you will need both the orignal 995k dataset and the cleaned version. Make sure to update the file paths so that data points to the cleaned dataset and metadata points to the uncleaned dataset. Then run the notebook. Next open up exploration.ipynb and update the file paths to match your setup and run this notebook aswell.
+We ran our code in a Linux environment with 16 GB of memory and a NVIDIA A30 GPU on CUDA 12.8, provided by the [Electronic Research Data Archive](https://www.erda.dk/) at The University of Copenhagen.
 
-### Task 4/Splitting the data
-Get the cleaned data file and the spilt_data.py. Update the file path in split_data.py so it points to the cleaned data file, and run the script.
+## Repository structure
 
 
-## Part 2
-### Task 2/Logistic model
-You need the cleaned data, the top 10k words file (which you should have from exploration.ipynb), the full data set, and the file logistic_regression_CPU.ipynb. Update the paths so that full_data points to the full dataset, vocab_list points to the top‑10k‑words file, and data points to the cleaned dataset. And then run the notebook down to the cell that outputs the confusion matrix.
-### Task 3/Adding metadata to logistic model
-Use the same files as in task 2, but now start from the confusion matrix and run the notebook down to the evaluation part.
-## Part 3
-To get the advanced model make sure to run word_embeddings.ipynb first, after you have run that go to the nn_lstm_preprocessing.py file and change the paths to match your paths. So EMBEDDING_MODEL_PATH should be the model that you got from word_embeddings.ipynb and METADATA_PATH should be the total 995k rows dataset, and STEMMED_DATA_PATH should be the stemmed one that you got from the part 1 task 2. After that is done now run nn_lstm.ipynb until testing and you will get a model saved.
+## 1 Data processing and exploration
+To process the 995K FakeNewsCorpus subset, place the `995,000_rows.csv` file in the `data/` folder. Then, the dataprocessing scripts/notebooks located in the `dataprocessing/` folder can be run.
 
-## Part 4
+The `project.ipynb` is the main dataprocessing notebook, that uses the corpus to create a cleaned and stemmed version called `stemmed_data.csv` in the `data/` folder.
 
-### Task 1/Simple and advanced models
-For the logistic_regression, repeat what you did for Part 2 Task 2, but this time run the file until the LIAR part.
-Alternatively you can take the linreg.joblib file that you made from logistic_regression_CPU.ipynb, and in the same environment open the file log_rev_ev.ipynb and run the notebook to get the same result.
+The `fakenews_functions.py` script contains functions and regex patterns that `project.ipynb` uses to process the data.
 
-For the LSTM part get all the files from Part 3 and run the testing part.
+The `exploration.ipynb` notebook is used to explore the distribution of unique tokens.
 
-### Task 2/Liar dataset
-First you need to procces the LIAR dataset. So take the test split of the LIAR dataset and run proccees_lair_data_set.ipynp, whilst making sure the notebook has the correct path to the test file and that it can see fakenews_functions.py.
+The `exploration_tokens_and_domains.ipynb` notebook is used to explore our special tokens and the distribution of unique domains in the dataset.
 
-For the logistic_regression, follow the same procedure as in Task 1, but just run it for the LIAR dataset. You can do this by either the log_rev_ev.ipynb or the logistic_regression_CPU.ipynb by scrolling down to the LIAR part and running the correspondings cells. If doing this in log_rev_ev.ipynb then make sure to have the joblib file and the data_test both that you get from running logistic_regression_CPU.ipynb.
+The `Compute_vocab_size.ipynb` notebook is used to explore the vocabulary sizes during parts of the data processing.
 
-For the LSTM part get all the files from Part 3 and the fille called nn_modelevaluation.ipynb.
+<!-- TODO: creation of topword10000.csv -->
 
-## Part 5
-To get the data from part 5 run data_set_exp.ipynb and remember to set the path so they correctly point to the cleaned liar and the cleaned test set.
+## 2 Logistic regression model
+To run the logistic regression model in the `logisticregression/` folder, the files `stemmed_data.csv` and `topwords10000.csv` need to be in the `data/` folder.
+
+The `logisticregression/` folder has 2 equivalent files that contain the logistic regression model. One runs on the GPU using the cuML library, and the other runs on the CPU. Each of these files create the `linreg.joblib` file that contains the logistic regression model.
+
+<!-- TODO: explain model with added domains -->
+
+## 3 Neural network model
+To run the neural network model in the `neuralnetwork/` folder, the files `stemmed_data.csv`, `995,000_rows.csv` need to be in the `data/` folder.
+
+The `word_embeddings.ipynb` notebook uses `stemmed_data.csv` to make a word-embedding model, which creates the files `embedding_model.model`, `embedding_model.model.syn1neg.npy` and `embedding_model.model.wv.vectors.npy` in the `models/` folder.
+
+The `nn_lstm.ipynb` notebook contains the LSTM model, including the training loop and test results on the FakeNewsCorpus. This notebook saves the neural network model as `nn_model2.pth` in the `models/` folder.
+
+The `nn_lstm_preprocessing.py` script contains functions used in `nn_lstm.ipynb` to encode the news articles to PyTorch tensors.
+
+<!-- TODO: word embeddings -->
+
+## 4 Evaluation of models with LIAR dataset
+**The test results from our models on the FakeNewsCorpus is found in [part 2](#2-logistic-regression-model) and [part 3](#3-neural-network-model).**<br>
+The evaluation code for the LIAR dataset is located in the `evaluation/` folder, and requires the files for the models `linreg.joblib` and `nn_model2.pth` to be in the `models/` folder.
+
+The `` 
+<!-- TODO: file names -->
+
 
