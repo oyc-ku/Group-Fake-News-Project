@@ -9,16 +9,15 @@ Specific parts of our code urilize the GPU and require CUDA support. Some librar
 We ran our code in a Linux environment with 16 GB of memory and a NVIDIA A30 GPU on CUDA 12.8, provided by the [Electronic Research Data Archive](https://www.erda.dk/) at The University of Copenhagen.
 
 ## Repository structure
-The repository is orginized into two main types of folders: 
-The first type of folders, is the component specific folders. These relate directly to a specific part of the project e.g. `logisticregression/`for [part 2](#2-logistic-regression-model).
-The second type of folders, is the shared resource folders. These contain data or files used across mulitiple parts, such as `data/`. 
-Note that `dataprocessing/` is a slight outlier, since it contains all dataprocessing both for [part 1](#1-data-processing-and-exploration) and [part 4](#4-evaluation-of-models-with-liar-dataset).
+Our data pipeline is split into different modules, which roughly correspond to each of the folder in this repository.
+These folders relate to a specific part of the project e.g. `logisticregression/`for [part 2](#2-logistic-regression-model).
 
-Running the scripts will generate files. Some which either already exsists `liar_stemmed_data.csv` but also data which are too big for github such as `stemmed_data.csv`.
-If something does not match the path or it gives an error becuase of path, just update the path so that it matches with your local enviorment, sometimes it might be necessary to use your global path.
-Ensure you download the whole project, rather than individual file.
+We also have folders, to store the shared resource folders. The `data/` folder contains datasets and analytics files and the `model/` folder contains our machine learning models. 
+Note that `dataprocessing/` is a slight outlier, since it contains dataprocessing both for [part 1](#1-data-processing-and-exploration) and [part 4](#4-evaluation-of-models-with-liar-dataset).
 
-The `temp/` folder is used for files for we don't use anymore, an exemple of that is `split_data.py` which was used to split the data into train, validation and test. But instead of doing it there we decied to do the procces in the files where we need either train, validation or test .
+Running the scripts will generate files. Some which we have already saved such as `liar_stemmed_data.csv` but some files are too big for github such as `995,000_rows.csv`.
+
+The `temp/` folder is used for files for we don't use anymore, an example of that is `split_data.py` which was used to split the data into train, validation and test. But instead of doing it there we decied to do when we read the files in the model training code where we need the split train, validation or test sets.
 
 ## 1 Data processing and exploration
 To process the 995K FakeNewsCorpus subset, place the `995,000_rows.csv` file in the `data/` folder. You can then run the scripts located in the `dataprocessing/` folder.
