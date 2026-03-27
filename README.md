@@ -32,7 +32,7 @@ The `Compute_vocab_size.ipynb` notebook is used to explore the vocabulary sizes 
 ## 2 Logistic regression model
 To run the logistic regression model in the `logisticregression/` folder, the files `stemmed_data.csv` and `topwords10000.csv` need to be in the `data/` folder.
 
-The `logisticregression/` folder has 2 equivalent files that contain the logistic regression model. One runs on the GPU using the cuML library, and the other runs on the CPU. Each of these files create the `linreg.joblib` file that contains the logistic regression model.
+The `logisticregression/` folder has 2 equivalent files that contain the logistic regression model. One runs on the GPU using the cuML library`logistic_regression.ipynb`, and the other runs on the CPU`logistic_regression_CPU.ipynb` . Each of these files create the `linreg.joblib` file that contains the logistic regression model.
 
 <!-- TODO: explain model with added domains -->
 
@@ -49,9 +49,9 @@ The `nn_lstm_preprocessing.py` script contains functions used in `nn_lstm.ipynb`
 
 ## 4 Evaluation of models with LIAR dataset
 **The test results from our models on the FakeNewsCorpus is found in [part 2](#2-logistic-regression-model) and [part 3](#3-neural-network-model).**<br>
-The evaluation code for the LIAR dataset is located in the `evaluation/` folder, and requires the files for the models `linreg.joblib` and `nn_model2.pth` to be in the `models/` folder.
+The evaluation code for the LIAR dataset is located in the `evaluation/` folder, and requires the files for the models `linreg.joblib` and `nn_model2.pth` to be in the `models/` folder. Then to get the results for the different of LIAR for benchmark run `evaluation_benchmark_random.ipynb` for logistic run `evaluation_logistic_model.ipynb` for neurelnetwork `evaluation_nn_model.ipynb`.
 
-The `` 
+
 <!-- TODO: file names -->
 
 
